@@ -6,7 +6,7 @@
 You can test all APIs using the Postman collection.
 
 1. Download the file:
-   `expense-tracker.postman_collection.json`
+   `TodoForDeploy.postman_collection.json`
 
 2. Open Postman  
 3. Click Import  
