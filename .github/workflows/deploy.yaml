@@ -7,7 +7,7 @@ on:
   
 jobs:
   deploy:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
@@ -18,7 +18,7 @@ jobs:
         with:
          host: ${{ secrets.SSH_HOST }}
          username: root
-         keys: ${{ secrets.SSH_KEY }}
+         key: ${{ secrets.SSH_KEY }}
          script: |
             cd /home/ubuntu/Live_Todo
             git pull
