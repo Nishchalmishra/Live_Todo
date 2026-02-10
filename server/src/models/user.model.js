@@ -29,8 +29,8 @@ const userSchema = new Schema(
 
 userSchema.pre("save", async function () {
     if (!this.isModified("password")) {
-        console.log("PRE SAVE HOOK RUNNING")
-        console.log("isModified:", this.isModified("password"))
+        // console.log("PRE SAVE HOOK RUNNING")
+        // console.log("isModified:", this.isModified("password"))
 
         return
     }

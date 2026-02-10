@@ -1,4 +1,3 @@
-import redis from './redisClient.js';
 import cluster from "cluster"
 import os from "os"
 
@@ -15,18 +14,11 @@ if (cluster.isPrimary) {
     })
 
 } else {
-    const { default: app } = await import("./index.js")
+    const { default: app } = await import("./app.js")
 
     app.get("/", (req, res) => {
         res.send("Hello World")
     })
-
-    app.get('/test-redis', async (req, res) => {
-        await redis.set('name', 'Nishchal', 'EX', 60);
-        const value = await redis.get('name');
-
-        res.json({ value });
-    });
 
     app.listen(process.env.PORT, () => {
         console.log(`Worker ${process.pid} is running`);

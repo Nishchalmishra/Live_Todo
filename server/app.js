@@ -18,21 +18,6 @@ app.use((req,res,next)=>{
 
 const rateLimiter = async (req, res, next) => {
     try {
-        // const ip = req.ip;
-        // const key = `rate:${ip}`;
-
-        // const current = await redis.incr(key);
-
-        // if (current === 1) {
-        //     // first request → set window
-        //     await redis.expire(key, 60); // 10 seconds
-        // }
-
-        // if (current > 5) {
-        //     return res.status(429).json({
-        //         message: 'Too many requests. Slow down.',
-        //     });
-        // }
         const ip = req.ip
         const key = `rate:${ip}`
 
@@ -57,11 +42,4 @@ app.use(express.json())
 app.use("/api/v1/todo", rateLimiter, router)
 app.use("/api/v1/user", userRouter)
 
-// app.get("/", (req, res) => {
-//     res.send("Hello World")
-// })
-
-// app.listen(process.env.PORT, () => {
-//     console.log(`Server is running on port ${process.env.PORT}`)
-// })
 export default app

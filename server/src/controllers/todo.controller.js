@@ -29,7 +29,10 @@ const getTodo = async (req, res) => {
     if (cachedTodos) {
         console.log('⚡ from redis');
         return res.json(JSON.parse(cachedTodos));
+    } else {
+        console.log("no cache")
     }
+
 
     const todo = await Todo.find({ user: req.user._id }).populate("user")
 
