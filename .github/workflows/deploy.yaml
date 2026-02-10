@@ -20,6 +20,6 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /home/ubuntu/Live_Todo
+            cd /root/home/ubuntu/Live_Todo
             git pull
             docker compose up -d --build
