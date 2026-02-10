@@ -17,7 +17,7 @@ if (cluster.isPrimary) {
     const { default: app } = await import("./app.js")
 
     app.get("/", (req, res) => {
-        res.send("Hello World from India")
+        res.send("Hello World from India!!")
     })
 
     app.listen(process.env.PORT, () => {
